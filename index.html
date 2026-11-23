@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#120B10">
+  <meta name="description" content="A little place made with kindness, care, and a few beautiful surprises.">
+  <title>A Little Place of Happiness — For Rumaisa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="locked">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <section class="intro play" id="intro" aria-labelledby="introTitle">
+    <div class="intro-glow glow-one" aria-hidden="true"></div>
+    <div class="intro-glow glow-two" aria-hidden="true"></div>
+    <div class="intro-geometry" aria-hidden="true"></div>
+    <div class="intro-inner">
+      <p class="eyebrow">A little note, just for you</p>
+      <h1 id="introTitle" class="line-reveal"><span>Some days deserve</span><span>a little extra happiness...</span></h1>
+      <p class="intro-sub">A little place made with kindness, care, and a few beautiful surprises.</p>
+      <button class="btn btn-lg intro-btn" id="openBtn" type="button">Open Your Little Surprise <span aria-hidden="true">✦</span></button>
+      <div class="intro-rose" aria-hidden="true">
+        <svg viewBox="0 0 220 270">
+          <path class="rose-stem" d="M109 126c0 38 8 80 4 131"/>
+          <path class="rose-leaf" d="M112 205c-31-18-52-13-63-1 24 20 44 21 63 1Z"/>
+          <path class="rose-leaf" d="M112 227c24-24 47-24 61-14-17 25-37 30-61 14Z"/>
+          <path class="bloom-petal bloom-back" d="M109 145c-34-4-55-27-49-54 4-21 25-31 43-19 15-24 43-20 51 3 26-4 42 17 33 39-10 23-42 34-78 31Z"/>
+          <path class="bloom-petal bloom-mid" d="M108 138c-25-10-36-30-24-47 8-11 21-10 29-1 8-17 27-19 37-6 13-4 26 6 24 20-4 21-31 37-66 34Z"/>
+          <path class="bloom-petal bloom-front" d="M105 132c-14-11-12-25-2-29 8-3 13 3 12 9 8-12 21-8 22 1 1 9-14 18-32 19Z"/>
+          <path class="rose-sepal" d="m108 143-12 15 15-6 10 8 1-15Z"/>
+        </svg>
+      </div>
+      <span class="intro-signature" aria-hidden="true">R</span>
+    </div>
+    <span class="intro-foot">MADE WITH CARE <i>✳</i> KEPT WITH LOVE</span>
+  </section>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#home" aria-label="For Rumaisa, home"><span class="brand-seal">R</span><span>For Rumaisa</span></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#dreams">Little Dreams</a>
+      <a href="#sweet">Something Sweet</a>
+      <a href="#memories">My Favourites</a>
+      <a href="#letter">A Letter</a>
+      <a href="#dua">A Little Dua</a>
+    </nav>
+  </header>
+
+  <button class="music-btn" id="musicBtn" type="button" aria-label="Play background music" aria-pressed="false" title="Play background music">
+    <span class="music-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+
+  <main class="app" id="app">
+    <section class="hero" id="home" data-nav="home" aria-labelledby="heroTitle">
+      <div class="hero-atmosphere" aria-hidden="true">
+        <div class="hero-aurora hero-aurora-one"></div>
+        <div class="hero-aurora hero-aurora-two"></div>
+        <div class="hero-bokeh"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+      </div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow hero-greeting" id="heroGreeting"></p>
+          <p class="hero-for"><span id="heroForText">For Rumaisa</span></p>
+          <h2 class="hero-title" id="heroTitle" aria-label="A Little Place of Happiness"><span>A Little Place</span><span>of Happiness</span></h2>
+          <p class="hero-deck">A quiet corner of the world, made with kindness, care, and a few beautiful surprises.</p>
+          <p class="hero-rotating-line" id="heroRotatingLine" aria-live="polite"></p>
+          <div class="hero-heart-wrap">
+            <div class="hero-heart-control">
+              <button class="hero-heart-button" id="heroHeart" type="button" aria-label="Reveal a little message" aria-pressed="false">
+                <span class="hero-heart-outline" aria-hidden="true">♡</span>
+              </button>
+              <span class="hero-heart-hint" aria-hidden="true">tap me</span>
+            </div>
+            <p class="hero-heart-message" id="heroHeartMessage" hidden></p>
+          </div>
+          <a class="scroll-cue" href="#dreams"><span>Begin here</span><i aria-hidden="true">↓</i></a>
+        </div>
+      </div>
+      <div class="hero-monogram" aria-hidden="true">
+        <div class="hero-monogram-core">
+          <span class="hero-monogram-ring hero-monogram-ring-outer"></span>
+          <span class="hero-monogram-ring hero-monogram-ring-inner"></span>
+          <span class="hero-monogram-letter">R</span>
+          <span class="hero-orbit-star hero-orbit-star-one">✦</span>
+          <span class="hero-orbit-star hero-orbit-star-two">✧</span>
+          <span class="hero-orbit-star hero-orbit-star-three">·</span>
+        </div>
+      </div>
+      <div class="hero-bursts" id="heroBursts" aria-hidden="true"></div>
+      <span class="hero-side-note" aria-hidden="true">A SMALL GIFT, MADE WITH CARE</span>
+      <span class="section-flourish" aria-hidden="true">✳</span>
+    </section>
+
+    <section class="section dreams" id="dreams" data-nav="dreams">
+      <div class="section-inner">
+        <header class="section-heading reveal">
+          <p class="eyebrow">01 <span>—</span> Little Dreams</p>
+          <h2 class="title line-reveal"><span>A Little Dream on</span><span>Four Wheels</span></h2>
+        </header>
+        <figure class="media media-wide frame-double reveal-clip tilt-card parallax" data-label="A BMW in warm cinematic light">
+          <img data-image="bmw" alt="A BMW in warm cinematic light" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="headlight-glow" aria-hidden="true"></span>
+          <span class="frame-sweep" aria-hidden="true"></span>
+          <figcaption class="media-caption" id="bmwCaption"></figcaption>
+        </figure>
+        <div class="details">
+          <figure class="media frame-arch detail-media reveal-clip parallax" data-label="The details of a BMW interior">
+            <img data-image="bmwInterior" alt="The interior of a BMW, softly lit" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <span class="frame-sweep" aria-hidden="true"></span>
+          </figure>
+          <div class="details-copy reveal">
+            <p class="eyebrow">The little things</p>
+            <h3 class="subtitle">The Beauty of the Details</h3>
+            <span class="fine-rule" aria-hidden="true"></span>
+            <p class="lead" id="interiorCaption"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sweet" id="sweet" data-nav="sweet">
+      <div class="geometry" aria-hidden="true"></div>
+      <div class="section-inner sweet-inner">
+        <div class="sweet-copy reveal">
+          <p class="eyebrow">02 <span>—</span> Something Sweet</p>
+          <h2 class="title">A little sweetness<br><em>for your day.</em></h2>
+          <p class="lead" id="kitkatCaption"></p>
+          <button class="btn" id="kitBtn" type="button">Unwrap a Little Happiness <span aria-hidden="true">✦</span></button>
+        </div>
+        <div class="gift-stage reveal" id="sweetStage">
+          <div class="gift" id="kitGift" aria-hidden="true">
+            <span class="gift-aura"></span>
+            <div class="gift-lid"><span class="gift-bow"></span></div>
+            <div class="gift-box"><span class="gift-ribbon"></span></div>
+          </div>
+          <figure class="media kit-card frame-polaroid" id="kitCard" data-label="A little chocolate break">
+            <img data-image="kitkat" alt="A KitKat chocolate, a little treat for Rumaisa" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <figcaption id="kitkatRevealCaption"></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section flowers" id="flowers" data-nav="sweet">
+      <div class="section-inner split">
+        <figure class="media frame-arch flower-media reveal-clip" data-label="Flowers for Rumaisa">
+          <img data-image="flowers" alt="Burgundy roses and soft flowers" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="frame-sweep" aria-hidden="true"></span>
+        </figure>
+        <div class="split-copy reveal">
+          <p class="eyebrow">A flower for you</p>
+          <h2 class="title">Flowers for a<br><em>Beautiful Soul</em></h2>
+          <span class="fine-rule" aria-hidden="true"></span>
+          <p class="lead" id="flowersCaption"></p>
+        </div>
+      </div>
+      <div class="section-inner rose-layout">
+        <div class="rose-copy reveal">
+          <p class="eyebrow">A Rare Kind of Beauty</p>
+          <h2 class="title">Midnight<br><em>Black Rose</em></h2>
+          <p class="lead">Quietly striking, graceful, and entirely its own.</p>
+          <span class="handwritten">For a one-of-a-kind soul.</span>
+        </div>
+        <figure class="black-rose-figure reveal-clip">
+          <div class="media black-rose-art" data-label="">
+            <img id="blackRoseImage" alt="A black rose" loading="lazy" decoding="async" referrerpolicy="no-referrer" hidden>
+            <svg id="blackRoseFallback" viewBox="0 0 360 470" role="img" aria-labelledby="blackRoseTitle">
+              <title id="blackRoseTitle">An elegant black rose</title>
+              <defs>
+                <linearGradient id="blackPetal" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#38232b"/><stop offset=".52" stop-color="#110d11"/><stop offset="1" stop-color="#050506"/>
+                </linearGradient>
+                <linearGradient id="blackStem" x1="0" x2="1">
+                  <stop stop-color="#392c25"/><stop offset=".5" stop-color="#20271d"/><stop offset="1" stop-color="#111610"/>
+                </linearGradient>
+              </defs>
+              <path d="M180 217c0 65 12 141 3 220" fill="none" stroke="url(#blackStem)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M181 346c-43-25-72-18-88-1 35 27 61 28 88 1Z" fill="#192018" stroke="#806248" stroke-width="1.5"/>
+              <path d="M184 384c34-34 66-33 86-19-23 36-51 43-86 19Z" fill="#192018" stroke="#806248" stroke-width="1.5"/>
+              <path d="M180 240c-45-2-80-25-96-57-17-35-1-68 31-73-1-32 26-51 53-34 19-28 54-22 66 8 33-11 60 11 56 41 30 10 36 42 13 63-28 28-74 49-123 52Z" fill="url(#blackPetal)" stroke="#9b7455" stroke-opacity=".72"/>
+              <path d="M177 222c-34-12-55-35-55-61 0-25 23-39 44-24 13-22 41-24 54 1 21-16 46-1 43 23 23 11 13 37-6 50-23 16-52 20-80 11Z" fill="#171116" stroke="#b48b66" stroke-opacity=".75" stroke-width="1.4"/>
+              <path d="M130 158c15-17 37-10 42 10 5 17-5 32-22 38-18-11-29-30-20-48Zm46-26c9-21 34-23 44-3 9 17-2 34-19 39-17-8-28-19-25-36Zm53 13c12-19 35-14 37 6 2 17-12 30-30 30-13-11-15-23-7-36Z" fill="url(#blackPetal)" stroke="#a27a5b" stroke-opacity=".8" stroke-width="1.3"/>
+              <path d="M166 191c-6-12 3-23 15-22 9-13 25-8 26 4 11 6 9 20-3 25-14 10-32 5-38-7Z" fill="#0b090b" stroke="#c59a70" stroke-width="1.3"/>
+              <path d="M177 190c2-7 8-11 14-9 4-7 13-6 15 1 2 7-7 14-19 17" fill="none" stroke="#c59a70" stroke-width="1.2"/>
+              <path d="m177 237-14 20 18-7 12 10 2-20m-1-3 19 18-21-6-13 13-1-21" fill="#172016" stroke="#806248" stroke-width="1"/>
+              <ellipse cx="183" cy="456" rx="60" ry="6" fill="#D4A373" fill-opacity=".12"/>
+            </svg>
+            <span class="rose-vignette" aria-hidden="true"></span>
+            <span class="frame-sweep" aria-hidden="true"></span>
+          </div>
+          <figcaption class="black-rose-caption">An elegant black rose</figcaption>
+          <span class="rose-drift rose-petal-one" aria-hidden="true"></span>
+          <span class="rose-drift rose-petal-two" aria-hidden="true"></span>
+          <span class="rose-dust" aria-hidden="true"></span>
+        </figure>
+      </div>
+      <span class="flower-ornament" aria-hidden="true">✳</span>
+    </section>
+
+    <section class="section photo-section photo-rumaisa" id="memories" data-nav="memories">
+      <div class="section-inner photo-layout">
+        <div class="favourite-frame-wrap reveal-clip">
+          <figure class="media frame-oval photo-media favourite-media" data-label="A favourite portrait of Rumaisa">
+            <img data-image="rumaisa" alt="Rumaisa" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="object-position: 50% 40%">
+            <span class="frame-sweep" aria-hidden="true"></span>
+          </figure>
+          <span class="favourite-badge"><span aria-hidden="true">♥</span> Favourite</span>
+          <span class="favourite-petal favourite-petal-one" aria-hidden="true"></span>
+          <span class="favourite-petal favourite-petal-two" aria-hidden="true"></span>
+          <span class="favourite-dust" aria-hidden="true"></span>
+        </div>
+        <div class="photo-copy reveal">
+          <p class="eyebrow">My Favourite</p>
+          <h2 class="title">My Favourite<br>Picture of You</h2>
+          <p class="lead favourite-caption" id="rumaisaCaption"></p>
+          <p class="handwritten" id="rumaisaNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section photo-section photo-ahmad" id="ahmad" data-nav="memories">
+      <div class="section-inner photo-layout reverse">
+        <figure class="media frame-polaroid photo-media reveal-clip" data-label="A smile from Ahmad">
+          <img data-image="myPhoto" alt="Ahmad" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="frame-sweep" aria-hidden="true"></span>
+          <figcaption class="optional-caption" id="ahmadHoverNote"></figcaption>
+        </figure>
+        <div class="photo-copy reveal">
+          <p class="eyebrow">A little smile from me</p>
+          <h2 class="title">A Little Smile<br><em>From Ahmad</em></h2>
+          <p class="lead" id="ahmadCaption"></p>
+          <p class="handwritten" id="ahmadNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section eyes-section" id="eyes" data-nav="memories">
+      <div class="section-inner eyes-inner">
+        <p class="eyebrow reveal">A quiet little moment</p>
+        <figure class="media frame-cameo eyes-media reveal-clip" data-label="A quiet close-up">
+          <img data-image="eyes" alt="A quiet close-up portrait" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="frame-sweep" aria-hidden="true"></span>
+        </figure>
+        <div class="eyes-copy reveal">
+          <h2 class="title">Some Beauty Needs No Words</h2>
+          <div class="shayari" id="eyesShayari"></div>
+          <p class="tiny-note" id="eyesNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section letter" id="letter" data-nav="letter">
+      <div class="section-inner letter-inner">
+        <div class="letter-heading reveal">
+          <p class="eyebrow">04 <span>—</span> A Letter</p>
+          <h2 class="title">A few words,<br><em>from the heart.</em></h2>
+          <p class="lead">Whenever you feel like reading them.</p>
+        </div>
+        <div class="letter-stage reveal" id="letterStage">
+          <div class="envelope" id="envelope" role="group" aria-label="Letter envelope">
+            <div class="env-back"></div>
+            <article class="paper" id="paper" aria-label="A letter for Rumaisa" aria-hidden="true">
+              <p class="paper-greeting handwritten" id="letterGreeting"></p>
+              <div class="paper-body" id="letterBody"></div>
+              <p class="paper-signoff handwritten" id="letterSignoff"></p>
+            </article>
+            <div class="env-flap"></div>
+            <div class="env-front"></div>
+            <button class="wax-seal" id="sealBtn" type="button" aria-label="Open the letter" aria-expanded="false">R</button>
+          </div>
+          <button class="btn letter-open-btn" id="letterBtn" type="button" aria-expanded="false" aria-controls="paper">Open the Letter <span aria-hidden="true">✦</span></button>
+          <button class="btn btn-ghost letter-close-btn" id="letterClose" type="button" hidden>Close Letter <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dua" id="dua" data-nav="dua">
+      <div class="dua-sky" id="duaSky" aria-hidden="true"></div>
+      <div class="dua-moon reveal" id="duaMoon" aria-hidden="true"></div>
+      <div class="dua-content reveal">
+        <p class="eyebrow">05 <span>—</span> A Little Dua</p>
+        <h2 class="title">A little prayer<br><em>for your happiness.</em></h2>
+        <div class="dua-card" id="duaText"></div>
+        <button class="btn" id="ameenBtn" type="button">Ameen <span aria-hidden="true">✦</span></button>
+        <p class="ameen-response" id="ameenResponse" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section final" id="gift" data-nav="dua">
+      <div class="section-inner final-inner">
+        <p class="eyebrow reveal">One last little surprise</p>
+        <h2 class="title reveal">One Last Little Surprise</h2>
+        <div class="gift-stage final-stage reveal" id="finalStage">
+          <div class="gift big" id="finalGift" aria-hidden="true">
+            <span class="gift-aura"></span>
+            <div class="gift-lid"><span class="gift-bow"></span></div>
+            <div class="gift-box"><span class="gift-ribbon"></span></div>
+          </div>
+          <div class="final-message" id="finalMessage" aria-live="polite"></div>
+        </div>
+        <button class="btn btn-lg" id="finalBtn" type="button">Open Your Gift <span aria-hidden="true">✦</span></button>
+        <button class="btn btn-ghost replay-btn" id="replayBtn" type="button" hidden>Replay This Little Journey <span aria-hidden="true">↺</span></button>
+      </div>
+      <footer class="footer">Made with care, for Rumaisa <span>✳</span></footer>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>
